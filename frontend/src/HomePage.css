@@ -1,0 +1,135 @@
+/* HomePage.css */
+
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hero section styles */
+.hero {
+  position: relative;
+  background-image: url('hero-image.jpg'); /* Add hero image URL */
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.hero-content {
+  margin-bottom: 50px;
+}
+
+.hero-content h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #4a3534;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #362120;
+}
+
+.cta-button {
+  padding: 15px 30px;
+  background-color: #28a745; /* Adjust button color as needed */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background-color: #218838; /* Adjust button hover color as needed */
+}
+
+/* Promotional banner or featured product image styles */
+.hero img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Add shadow for better visual appeal */
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+/* Categories section styles */
+.categories {
+  padding: 50px 0;
+  text-align: center;
+  background-color: #f2eded;
+}
+
+.categories h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #4a3534; /* Adjust heading color for better contrast */
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust grid layout as needed */
+  gap: 20px;
+}
+
+.category-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.category-card img {
+  width: 100%; /* Adjust image size as needed */
+  border-radius: 5px;
+}
+
+.category-card h3 {
+  margin-top: 10px;
+  color: #362120;
+}
+
+/* Testimonials section styles */
+.testimonials {
+  background-color: #b39984; /* Adjust background color as needed */
+  padding: 50px 0;
+  text-align: center;
+  color: #333; /* Adjust text color for better visibility */
+}
+
+.testimonials h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #000; /* Adjust heading color for better contrast */
+}
+
+.testimonial-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.testimonial {
+  background-color: #f2eded;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px; /* Adjust testimonial width as needed */
+  color: #333; /* Adjust text color for better visibility */
+}
+
+.testimonial p {
+  margin-bottom: 10px;
+  color: #555; /* Adjust paragraph text color */
+}
+
+.testimonial span {
+  font-style: italic;
+  color: #777; /* Adjust testimonial author color */
+}
+
+

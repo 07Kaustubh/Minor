@@ -1,0 +1,143 @@
+/* Product Details Page styles */
+
+/* Global container for product details page */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+/* Product image gallery */
+.product-image-gallery {
+  width: 50%;
+}
+
+/* Product info section */
+.product-info {
+  width: 50%;
+  padding: 0 20px;
+}
+
+/* Product name */
+.product-info h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Product price */
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Product description */
+.description {
+  margin-bottom: 20px;
+}
+
+/* Variation options */
+.variation-options {
+  margin-bottom: 20px;
+}
+
+/* Variation options label */
+.variation-options label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Variation select dropdown */
+.variation-options select {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+/* Quantity input */
+.variation-options input[type="number"] {
+  padding: 10px;
+  width: 80px;
+}
+
+/* Add to cart button */
+.add-to-cart {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Add to cart button hover state */
+.add-to-cart:hover {
+  background-color: #218838;
+}
+
+/* Main product image */
+.main-image {
+  margin-bottom: 20px;
+}
+
+/* Main product image */
+.main-image img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+/* Thumbnail gallery */
+.thumbnail-gallery {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Thumbnail image */
+.thumbnail-gallery img {
+  width: calc(20% - 4px);
+  border: 2px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Active thumbnail image */
+.thumbnail-gallery img.active {
+  border-color: #007bff;
+}
+
+/* Related products section */
+.related-products {
+  margin-top: 50px;
+}
+
+/* Related products title */
+.related-products h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Related products list */
+.related-product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Related product item */
+.related-product {
+  text-align: center;
+}
+
+/* Related product image */
+.related-product img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+/* Related product name */
+.related-product p {
+  margin-top: 10px;
+}
+
+/* End of Product Details Page styles */

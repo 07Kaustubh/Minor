@@ -1,0 +1,28 @@
+.footer {
+    width: 100%;
+    background-color: #4a3534; /* Adjust background color as needed */
+    color: #fff;
+    padding: 50px 0;
+    text-align: center;
+  }
+  
+  .footer-links ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .footer-links ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  .social-icons a {
+    color: #fff;
+    margin-right: 10px;
+  }
+  
+  .social-icons a:hover {
+    color: #ccc;
+  }
+  

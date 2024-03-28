@@ -1,0 +1,124 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f2eded; /* Adjust background color as needed */
+}
+
+/* Logo styles */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 100px; /* Adjust logo size as needed */
+  margin-right: 10px; /* Add margin for better alignment */
+}
+
+/* Navigation styles */
+.navigation ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navigation ul li {
+  margin-right: 20px;
+}
+
+.navigation ul li:last-child {
+  margin-right: 0;
+}
+
+.navigation ul li a {
+  text-decoration: none;
+  color: #333; /* Adjust link color as needed */
+  font-weight: bold; /* Make links bold */
+  transition: color 0.3s ease; /* Add transition effect for smoother color change */
+}
+
+.navigation ul li a:hover {
+  color: #007bff; /* Change link color on hover */
+}
+
+/* Search form styles */
+.search-form {
+  display: flex;
+  align-items: center; /* Align items vertically */
+}
+
+.search-form input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  width: 200px; /* Adjust input width as needed */
+}
+
+.search-form button {
+  padding: 10px 20px;
+  background-color: #007bff; /* Adjust button color as needed */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-form button:hover {
+  background-color: #0056b3; /* Adjust button hover color as needed */
+}
+
+/* Cart link styles */
+.navigation ul .cart-link {
+  position: relative;
+}
+
+.navigation ul .cart-link .cart-count {
+  position: absolute;
+  top: -20px; /* Adjust distance from the top */
+  right: -30px; /* Adjust distance from the right */
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+.navigation ul .cart-link a {
+  display: flex;
+  align-items: center;
+}
+
+.navigation ul .cart-link a span {
+  margin-right: 3px; /* Adjust spacing between text and badge */
+}
+
+/* Popup form styles */
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

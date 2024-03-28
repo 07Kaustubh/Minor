@@ -1,0 +1,143 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Product 1",
+        "price": 10.99,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "src/product1.jpg",
+        "variations": ["Variation 1", "Variation 2"],
+        "images": ["src/product1.jpg", "src/product1.jpg"],
+        "relatedProducts": [
+          {
+            "id": 2,
+            "name": "Related Product 1",
+            "price": 19.99,
+            "image": "src/product1.jpg"
+          },
+          {
+            "id": 3,
+            "name": "Related Product 2",
+            "price": 14.99,
+            "image": "src/product1.jpg"
+          }
+        ]
+      },
+        {
+            "id": 2,
+            "name": "Product 2",
+            "price": 19.99,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "image": "src/product1.jpg",
+            "variations": ["Variation 1", "Variation 2"],
+            "images": ["src/product1.jpg", "src/product1.jpg"],
+            "relatedProducts": [
+            {
+                "id": 1,
+                "name": "Related Product 1",
+                "price": 10.99,
+                "image": "src/product1.jpg"
+            },
+            {
+                "id": 3,
+                "name": "Related Product 2",
+                "price": 14.99,
+                "image": "src/product1.jpg"
+            }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Product 3",
+            "price": 14.99,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "image": "src/product1.jpg",
+            "variations": ["Variation 1", "Variation 2"],
+            "images": ["src/product1.jpg", "src/product1.jpg"],
+            "relatedProducts": [
+            {
+                "id": 1,
+                "name": "Related Product 1",
+                "price": 10.99,
+                "image": "src/product1.jpg"
+            },
+            {
+                "id": 2,
+                "name": "Related Product 2",
+                "price": 19.99,
+                "image": "src/product1.jpg"
+            }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Product 4",
+            "price": 10.99,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "image": "src/product1.jpg",
+            "variations": ["Variation 1", "Variation 2"],
+            "images": ["src/product1.jpg", "src/product1.jpg"],
+            "relatedProducts": [
+            {
+                "id": 5,
+                "name": "Related Product 1",
+                "price": 19.99,
+                "image": "src/product1.jpg"
+            },
+            {
+                "id": 6,
+                "name": "Related Product 2",
+                "price": 14.99,
+                "image": "src/product1.jpg"
+            }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Product 5",
+            "price": 19.99,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "image": "src/product1.jpg",
+            "variations": ["Variation 1", "Variation 2"],
+            "images": ["src/product1.jpg", "src/product1.jpg"],
+            "relatedProducts": [
+            {
+                "id": 4,
+                "name": "Related Product 1",
+                "price": 10.99,
+                "image": "src/product1.jpg"
+            },
+            {
+                "id": 6,
+                "name": "Related Product 2",
+                "price": 14.99,
+                "image": "src/product1.jpg"
+            }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Product 6",
+            "price": 14.99,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "image": "src/product1.jpg",
+            "variations": ["Variation 1", "Variation 2"],
+            "images": ["src/product1.jpg", "src/product1.jpg"],
+            "relatedProducts": [
+            {
+                "id": 4,
+                "name": "Related Product 1",
+                "price": 10.99,
+                "image": "src/product1.jpg"
+            },
+            {
+                "id": 5,
+                "name": "Related Product 2",
+                "price": 19.99,
+                "image": "src/product1.jpg"
+            }
+            ]
+        }
+    ]
+}
+  

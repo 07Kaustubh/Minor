@@ -7,7 +7,6 @@ import Footer from './Footer';
 import { useCart } from './services/CartContext';
 import { handleStripeCheckout, updateUser } from './services/api';
 import { useAuth } from './services/auth';
-import Return from './Return';
 
 const stripePromise = loadStripe('pk_test_51OuKavSDiZC2cvAQLUSTxx1DcGJA0NYJnF0ZcEktkgDvjSIps500h6Sf4fB8nFWpyM7GjoQAvh8e4GnSS0RNQ7u700Jt1wDvQN');
 
@@ -183,7 +182,6 @@ const CheckoutProcess = () => {
     {/* Show complete button in the last step */}
     {currentStep === 3 && <button className="complete-button" onClick={handleCheckout}>Checkout with Stripe</button>}
   </div>
-  <Return />
   <Footer />
 </div>
 );

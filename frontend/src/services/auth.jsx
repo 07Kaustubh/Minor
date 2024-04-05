@@ -13,16 +13,20 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                if (isLoggedIn) {
-                    const token = localStorage.getItem('token');
+                const token = localStorage.getItem('token');
+                console.log('localstorage', localStorage.getItem('token'));
+                if (token) {
                     console.log('Token:', token); // Log the token for verification
                     const decodedToken = JSON.parse(atob(token.split('.')[1])); // Decode the token
                     console.log('Decoded Token:', decodedToken); // Log the decoded token for verification
                     const { userId } = decodedToken; // Extract the user ID from the decoded token
                     console.log('User ID:', userId); // Log the user ID for verification
                     setUserId(userId); // Set the user ID state
+                    setAuthToken(token); // Set token in request headers
+                    setIsLoggedIn(true); // Set the login status
                     const response = await getUserById(userId); // Fetch user data using the user ID
                     setUserData(response); // Set the user data state
+                    console.log('localstorage', localStorage.getItem('token'));
                 }
             } catch (error) {
                 console.error('Error fetching user data:', error);
@@ -35,8 +39,6 @@ export const AuthProvider = ({ children }) => {
     const login = (token, userId) => {
         setIsLoggedIn(true);
         setUserId(userId); // Set the user ID when logging in
-//        localStorage.setItem('token', token);
-  //      setAuthToken(token);
     };
 
     const logout = () => {

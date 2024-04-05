@@ -46,6 +46,7 @@ export const setAuthToken = (token) => {
   if (token) {
     console.log('Setting token in headers:', token); // Log token for verification
     api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    console.log('Headers after setting token:', api.defaults.headers); // Log headers after setting token
   } else {
     console.log('Token is null or undefined, not removing from headers'); // Log token removal for verification
     delete api.defaults.headers.common['Authorization'];

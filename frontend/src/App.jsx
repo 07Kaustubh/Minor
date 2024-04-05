@@ -7,6 +7,7 @@ import ShoppingCart from './ShoppingCart';
 import CheckoutProcess from './CheckoutProcess';
 import UserDashboard from './UserDashboard';
 import PrivateRoute from './PrivateRoute'; // Ensure correct import path
+import Return from './Return';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
          <UserDashboard />
         </PrivateRoute>}
       />
+      <Route path='/return' element={<Return />} />
     </Routes>
   );
 }

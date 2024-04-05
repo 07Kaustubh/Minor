@@ -10,6 +10,7 @@ const PopupForm = ({ onClose, onLoginSuccess }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [showLogin, setShowLogin] = useState(true);
+  const [error, setError] = useState(null);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -24,10 +25,13 @@ const PopupForm = ({ onClose, onLoginSuccess }) => {
       // Invoke the onLoginSuccess callback
       login();
       onLoginSuccess();
+      setError(null);
       // Handle successful login (redirect, show success message, etc.)
     } catch (error) {
       // Handle login error (display error message, etc.)
       console.error('Login error:', error);
+      setError('Invalid email or password. Please try again.');
+      setPassword(''); // Clear password field
     }
   };
   
@@ -46,6 +50,8 @@ const PopupForm = ({ onClose, onLoginSuccess }) => {
     } catch (error) {
       // Handle signup error (display error message, etc.)
       console.error('Signup error:', error);
+      setError('An error occurred during signup. Please try again.');
+      setPassword(''); // Clear password field
     }
   };
   
@@ -60,6 +66,7 @@ const PopupForm = ({ onClose, onLoginSuccess }) => {
         <button className="close-btn" onClick={onClose}>
           Close
         </button>
+        {error && <p className="error-message">{error}</p>}
         {showLogin ? (
           <>
             <h2>Login</h2>

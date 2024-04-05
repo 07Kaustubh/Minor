@@ -15,6 +15,7 @@ const Header = () => {
 
   useEffect(() => {
     // Update isLoggedInStatus whenever isLoggedIn changes
+    console.log('isLoggedIn changed:', isLoggedIn);
     setIsLoggedInStatus(isLoggedIn);
   }, [isLoggedIn]);
 

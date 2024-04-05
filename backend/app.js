@@ -25,6 +25,7 @@ const productRouter = require('./controllers/productController');
 const authRouter = require('./controllers/authController');
 const stripeRouter = require('./controllers/stripeController');
 const userRouter = require('./controllers/userController');
+const transactionRouter = require('./controllers/transactionController');
 
 app.use('/api/categories', categoryRouter);
 app.use('/api/orders', orderRouter);
@@ -33,6 +34,7 @@ app.use('/api/products', productRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/stripe', stripeRouter);
 app.use('/api/users', verifyToken, userRouter);
+app.use('/api/transactions', transactionRouter);
 
 // Error handling middleware
 app.use(errorHandler);

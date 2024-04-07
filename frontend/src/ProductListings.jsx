@@ -1,34 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
-import './ProductListings.css'; // Import CSS styles for product listings
-import { getAllProducts } from './services/api'; // Import getAllProducts function
+import './ProductListings.css';
+import { getAllProducts } from './services/api';
 
 const ProductListings = () => {
-  // State for storing products data
   const [products, setProducts] = useState([]);
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const category = queryParams.get('category');
 
-  // Dummy products data (replace with actual data from API or database)
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const productsData = await getAllProducts();
-        setProducts(productsData);
+        // If category is provided in the URL, filter products by category
+        const filteredProducts = category
+          ? productsData.filter(product => product.category_name === category)
+          : productsData;
+        setProducts(filteredProducts);
       } catch (error) {
         console.error('Error fetching products:', error);
       }
     };
 
     fetchProducts();
-  }, []);
+  }, [category]);
 
   return (
     <div>
       <Header />
       <div className="product-listings">
         <div className="container">
-          {/* Product grid layout */}
           <div className="product-grid">
             {products.map(product => (
               <Link to={`/product/${product.product_id}`} key={product.id}>
@@ -42,7 +46,7 @@ const ProductListings = () => {
                   </div>
                 </div>
               </Link>
-            ))}``
+            ))}
           </div>
         </div>
       </div>

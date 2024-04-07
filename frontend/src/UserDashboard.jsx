@@ -3,7 +3,7 @@ import './UserDashboard.css';
 import Header from './Header';
 import Footer from './Footer';
 import { useAuth } from './services/auth';
-import { getAllOrders, getUserById } from './services/api'; // Make sure to import the correct API module
+import { getAllOrders, getUserById, updateUser } from './services/api'; // Make sure to import the correct API module
 
 const UserDashboard = () => {
   // State to store user data
@@ -32,6 +32,7 @@ const UserDashboard = () => {
   
         const orderHistoryResponse = await getAllOrders();
         setOrderHistory(orderHistoryResponse);
+        console.log('Order History:', orderHistoryResponse);
       } catch (error) {
         console.error('Error fetching additional user data:', error);
       }
@@ -41,6 +42,66 @@ const UserDashboard = () => {
     fetchAdditionalUserData();
   }, [userId]); // Fetch user data and additional user data whenever userId changes
    // Fetch user data and additional user data whenever userId changes
+
+   const handleNameChange = async () => {
+    const newName = prompt('Enter your new name:');
+    if (newName) {
+      const [firstName, lastName] = newName.split(' ');
+      try {
+        await updateUser(userId, { firstName, lastName });
+        setUserData({ ...userData, firstName, lastName });
+      } catch (error) {
+        console.error('Error updating name:', error);
+      }
+    }
+  };
+
+  const handleEditAddress = async (addressId) => {
+    const addressToUpdate = addressBook.find(address => address.id === addressId);
+  
+    // Prompt for each part of the address separately
+    const newAddress = prompt('Enter your new address:', addressToUpdate.address);
+    const newCity = prompt('Enter your new city:', addressToUpdate.city);
+    const newPostalCode = prompt('Enter your new postal code:', addressToUpdate.postalCode);
+    const newCountry = prompt('Enter your new country:', addressToUpdate.country);
+  
+    if (newAddress && newCity && newPostalCode && newCountry) {
+      const updatedAddress = {
+        address: newAddress,
+        city: newCity,
+        postalCode: newPostalCode,
+        country: newCountry
+      };
+  
+      try {
+        const updatedAddressBook = addressBook.map(address => {
+          if (address.id === addressId) {
+            return updatedAddress;
+          }
+          return address;
+        });
+  
+        await updateUser(userId, { address: updatedAddressBook });
+        setAddressBook(updatedAddressBook);
+      } catch (error) {
+        console.error('Error updating address:', error);
+      }
+    }
+  };
+  
+
+  const handleDeleteAddress = async (addressId) => {
+    const confirmDelete = window.confirm('Are you sure you want to delete this address?');
+    if (confirmDelete) {
+      try {
+        const updatedAddressBook = addressBook.filter(address => address.id !== addressId);
+        await updateUser(userId, { address: updatedAddressBook });
+        setAddressBook(updatedAddressBook);
+      } catch (error) {
+        console.error('Error deleting address:', error);
+      }
+    }
+  };
 
   if (!userData) {
     return <div>Loading...</div>; // Render a loading indicator while fetching user data
@@ -60,7 +121,8 @@ const UserDashboard = () => {
         </div>
         {/* Add buttons to edit profile, change password, etc. */}
         <div className="profile-actions">
-          <button className="action-button">Edit Profile</button>
+          <button className="action-button" onClick={handleNameChange}>Change Name</button>
+          <button className="action-button">Change Email</button>
           <button className="action-button">Change Password</button>
         </div>
       </div>
@@ -80,10 +142,10 @@ const UserDashboard = () => {
             </thead>
             <tbody>
               {orderHistory.map(order => (
-                <tr key={order.id}>
-                  <td>{order.id}</td>
-                  <td>{order.date}</td>
-                  <td>${order.total.toFixed(2)}</td>
+                <tr key={order.order_id}>
+                  <td>{order.order_id}</td>
+                  <td>{order.order_date}</td>
+                  <td>${order.total_price}</td>
                   <td>{order.status}</td>
                   {/* Add more table cells for order details */}
                 </tr>
@@ -118,16 +180,15 @@ const UserDashboard = () => {
   <h3 className="section-title">Address Book</h3>
   {addressBook.length > 0 ? (
     <ul className="address-list">
-      {addressBook.map(address => (
-        <li key={address.id} className="address-item">
+      {addressBook.map((address, index) => (
+        <li key={index} className="address-item">
           <span><strong>Address:</strong> {address.address}</span>
           <span><strong>City:</strong> {address.city}</span>
           <span><strong>Postal Code:</strong> {address.postalCode}</span>
           <span><strong>Country:</strong> {address.country}</span>
           {/* Add buttons to edit, delete, or set as default address */}
-          <button className="action-button">Edit</button>
-          <button className="action-button">Delete</button>
-          <button className="action-button">Set as Default</button>
+          <button className="action-button" onClick={() => handleEditAddress(address.id)}>Edit</button>
+          <button className="action-button" onClick={() => handleDeleteAddress(address.id)}>Delete</button>
         </li>
       ))}
     </ul>

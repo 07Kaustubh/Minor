@@ -65,40 +65,44 @@ const ShoppingCart = () => {
       <Header />
       <div className="container">
         <h2 className="cart-title">Shopping Cart</h2>
-        {productDetails.map(item => (
-          <div key={`${item.id}-${item.variation}`} className="cart-item">
-            <div className="item-image">
-              <img src={item.image} alt={item.name} />
-            </div>
-            <div className="item-details">
-              <h3>{item.name}</h3>
-              <p className="variation">Variation: {item.variation}</p>
-              <p className="price">${item.price.toFixed(2)}</p>
-              <div className="quantity">
-                <button onClick={() => handleDecreaseQuantity(item.product_id, item.variation)}>-</button>
-                <span>{item.quantity}</span>
-                <button onClick={() => handleIncreaseQuantity(item.product_id, item.variation)}>+</button>
+        {productDetails.length === 0 ? ( // Check if cart is empty
+          <p>No items in cart.</p>
+        ) : (
+          productDetails.map(item => (
+            <div key={`${item.id}-${item.variation}`} className="cart-item">
+              <div className="item-image">
+                <img src={item.image} alt={item.name} />
               </div>
-              <button className="remove-item" onClick={() => removeFromCart(item.product_id, item.variation)}>Remove</button>
+              <div className="item-details">
+                <h3>{item.name}</h3>
+                <p className="variation">Variation: {item.variation}</p>
+                <p className="price">${item.price.toFixed(2)}</p>
+                <div className="quantity">
+                  <button onClick={() => handleDecreaseQuantity(item.product_id, item.variation)}>-</button>
+                  <span>{item.quantity}</span>
+                  <button onClick={() => handleIncreaseQuantity(item.product_id, item.variation)}>+</button>
+                </div>
+                <button className="remove-item" onClick={() => removeFromCart(item.product_id, item.variation)}>Remove</button>
+              </div>
+              <div className="item-total">
+                <p>${(item.price * item.quantity).toFixed(2)}</p>
+              </div>
             </div>
-            <div className="item-total">
-              <p>${(item.price * item.quantity).toFixed(2)}</p>
-            </div>
+          ))
+        )}
+      </div>
+      {productDetails.length > 0 && ( // Conditionally render the summary and checkout button if cart is not empty
+        <div className="summary">
+          <h3>Order Summary</h3>
+          <div className="summary-details">
+            <p>Subtotal: ${subtotal.toFixed(2)}</p>
+            <p>Tax: ${tax.toFixed(2)}</p>
+            <p>Shipping: ${shipping.toFixed(2)}</p>
+            <p>Total: ${total.toFixed(2)}</p>
           </div>
-        ))}
-      </div>
-      {/* Summary section */}
-      <div className="summary">
-        <h3>Order Summary</h3>
-        <div className="summary-details">
-          <p>Subtotal: ${subtotal.toFixed(2)}</p>
-          <p>Tax: ${tax.toFixed(2)}</p>
-          <p>Shipping: ${shipping.toFixed(2)}</p>
-          <p>Total: ${total.toFixed(2)}</p>
+          <Link to="/checkout" className="checkout-button">Proceed to Checkout</Link>
         </div>
-        {/* Proceed to checkout button */}
-        <Link to="/checkout" className="checkout-button">Proceed to Checkout</Link>
-      </div>
+      )}
       <Footer />
     </div>
   );

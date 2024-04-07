@@ -8,6 +8,10 @@ import CheckoutProcess from './CheckoutProcess';
 import UserDashboard from './UserDashboard';
 import PrivateRoute from './PrivateRoute'; // Ensure correct import path
 import Return from './Return';
+import AboutUs from './AboutUs';
+import Contact from './Contact';
+import ShippingReturns from './ShippingReturns';
+import TermsConditions from './TermsConditions';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function App() {
@@ -29,6 +33,10 @@ function App() {
         </PrivateRoute>}
       />
       <Route path='/return' element={<Return />} />
+      <Route path='/about' element={<AboutUs />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/shipping" element={<ShippingReturns />} />
+      <Route path='/terms' element={<TermsConditions />} /> {/* Add this route */}
     </Routes>
   );
 }

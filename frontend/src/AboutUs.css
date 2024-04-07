@@ -1,0 +1,18 @@
+/* AboutUs.css */
+.about-us {
+    max-width: 800px; /* Set maximum width for better readability */
+    margin: 0 auto; /* Center the content horizontally */
+    padding: 20px; /* Add some padding for spacing */
+  }
+  
+  .about-us h1 {
+    font-size: 2em; /* Larger font size for heading */
+    margin-bottom: 20px; /* Add spacing below the heading */
+  }
+  
+  .about-us p {
+    font-size: 1.1em; /* Medium font size for paragraphs */
+    line-height: 1.6; /* Set line height for better readability */
+    margin-bottom: 15px; /* Add spacing below paragraphs */
+  }
+  

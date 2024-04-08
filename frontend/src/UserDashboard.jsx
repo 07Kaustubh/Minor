@@ -3,7 +3,7 @@ import './UserDashboard.css';
 import Header from './Header';
 import Footer from './Footer';
 import { useAuth } from './services/auth';
-import { getAllOrders, getUserById, updateUser } from './services/api'; // Make sure to import the correct API module
+import { getAllOrders, getUserById, updateUser, getAllOrderItems, getProductById } from './services/api'; // Make sure to import the correct API module
 
 const UserDashboard = () => {
   // State to store user data
@@ -12,6 +12,7 @@ const UserDashboard = () => {
   const [wishlist, setWishlist] = useState([]);
   const [addressBook, setAddressBook] = useState([]);
   const { userId } = useAuth();
+  const [orderItemsMap, setOrderItemsMap] = useState(new Map());
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -33,6 +34,13 @@ const UserDashboard = () => {
         const orderHistoryResponse = await getAllOrders();
         setOrderHistory(orderHistoryResponse);
         console.log('Order History:', orderHistoryResponse);
+
+        const orderItemResponses = await Promise.all(orderHistoryResponse.map(order => getAllOrderItems(order.order_id)));
+        const orderItemsMap = new Map();
+        orderItemResponses.forEach((orderItems, index) => {
+          orderItemsMap.set(orderHistoryResponse[index].order_id, orderItems);
+        });
+        setOrderItemsMap(orderItemsMap);
       } catch (error) {
         console.error('Error fetching additional user data:', error);
       }
@@ -42,6 +50,51 @@ const UserDashboard = () => {
     fetchAdditionalUserData();
   }, [userId]); // Fetch user data and additional user data whenever userId changes
    // Fetch user data and additional user data whenever userId changes
+
+   const renderOrderItems = (order) => {
+    const orderItems = orderItemsMap.get(order.order_id) || [];
+    console.log('Order Items:', orderItems);
+  
+    return (
+      <ul>
+        {orderItems.map((item) => {
+          const productPromise = getProductById(item.product_id); // Fetch product data
+          return (
+            <ProductItem key={item.order_item_id} productPromise={productPromise} item={item} />
+          );
+        })}
+      </ul>
+    );
+  };
+  
+  const ProductItem = ({ productPromise, item }) => {
+    const [product, setProduct] = useState(null);
+  
+    useEffect(() => {
+      const fetchProduct = async () => {
+        try {
+          const productData = await productPromise;
+          setProduct(productData);
+        } catch (error) {
+          console.error('Error fetching product:', error);
+        }
+      };
+  
+      fetchProduct();
+    }, [productPromise]);
+  
+    if (!product) {
+      return <li>Loading...</li>;
+    }
+  
+    return (
+      <li>
+        {item.quantity} x {product.name} - ${item.price.toFixed(2)}
+      </li>
+    );
+  };
+  
+  
 
    const handleNameChange = async () => {
     const newName = prompt('Enter your new name:');
@@ -137,6 +190,7 @@ const UserDashboard = () => {
                 <th>Date</th>
                 <th>Total</th>
                 <th>Status</th>
+                <th>Items</th> {/* Added table header for items */}
                 {/* Add more table headers as needed */}
               </tr>
             </thead>
@@ -147,6 +201,7 @@ const UserDashboard = () => {
                   <td>{order.order_date}</td>
                   <td>${order.total_price}</td>
                   <td>{order.status}</td>
+                  <td>{renderOrderItems(order)}</td> {/* Render order items */}
                   {/* Add more table cells for order details */}
                 </tr>
               ))}

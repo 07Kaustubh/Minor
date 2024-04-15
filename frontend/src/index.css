@@ -1,71 +1,87 @@
 /* Reset and Global Styles */
 :root {
-  --primary-color: #646cff;
-  --primary-hover-color: #535bf2;
-  --background-dark: #242424;
-  --background-light: #ffffff;
-  --text-dark: rgba(255, 255, 255, 0.87);
-  --text-light: #213547;
+  --slogan-color: #4a3534;
+  --font-color: #362120;
+  --icon-gradient-0: #5A0E1D;
+  --icon-gradient-1: #B39984;
+  --background-color: #F2EDED;
 }
 
 body {
   margin: 0;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
   font-weight: 400;
-  min-width: 320px;
-  min-height: 100vh;
-  color: var(--text-dark);
-  background-color: var(--background-dark);
+  color: var(--font-color);
+  background-color: var(--background-color);
 }
 
 a {
   font-weight: 500;
-  color: var(--primary-color);
+  color: var(--slogan-color);
   text-decoration: none;
 }
 a:hover {
-  color: var(--primary-hover-color);
+  color: var(--icon-gradient-0);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  color: var(--slogan-color);
 }
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  border: none;
+  padding: 0.8em 1.5em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background: linear-gradient(to right, var(--icon-gradient-0), var(--icon-gradient-1));
+  color: #fff;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: background-color 0.25s, color 0.25s;
 }
 button:hover {
-  border-color: var(--primary-color);
+  background: linear-gradient(to right, var(--icon-gradient-1), var(--icon-gradient-0));
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: none;
 }
 
-/* Light Mode */
-@media (prefers-color-scheme: light) {
-  :root {
-    --text-dark: #213547;
-    --background-dark: #ffffff;
-    --primary-color: #747bff;
-    --primary-hover-color: #646cff;
+/* Responsive Design */
+
+/* Mobile First Approach */
+@media (min-width: 600px) {
+  /* Adjust styles for tablets */
+  body {
+    font-size: 16px; /* Increase font size for better readability */
   }
-  
-  a:hover {
-    color: var(--primary-hover-color);
+
+  h1 {
+    font-size: 2.5em; /* Decrease heading font size for smaller screens */
   }
 
   button {
-    background-color: #f9f9f9;
+    padding: 0.6em 1.2em; /* Adjust button padding for smaller screens */
+    font-size: 0.9em; /* Decrease button font size for smaller screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Adjust styles for desktops */
+  body {
+    font-size: 18px; /* Increase font size for better readability */
+  }
+
+  h1 {
+    font-size: 3em; /* Increase heading font size for larger screens */
+  }
+
+  button {
+    padding: 0.8em 1.5em; /* Increase button padding for larger screens */
+    font-size: 1em; /* Reset button font size for larger screens */
   }
 }

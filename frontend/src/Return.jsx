@@ -6,6 +6,7 @@ import { useCart } from './services/CartContext'; // Import useCart hook
 import { useAuth } from './services/auth'; // Import useAuth hook
 import Header from './Header';
 import Footer from './Footer';
+import './Return.css'; // Import CSS styles for return page
 
 const Return = () => {
   const { cartItems, clearCart } = useCart(); // Destructure cartItems and clearCart from useCart hook

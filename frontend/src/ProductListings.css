@@ -1,8 +1,11 @@
-/* Product Listings styles */
+/* ProductListings.css */
 
+/* Product Listings styles */
 .product-listings {
-  width: 100%;
+  width: calc(100% - 40px);
   padding: 20px;
+  background-color: var(--background-color); /* Use provided background color */
+  color: var(--font-color); /* Use provided font color */
 }
 
 .container {
@@ -43,21 +46,22 @@
 .product-details h3 {
   margin-top: 0;
   margin-bottom: 10px;
+  color: var(--slogan-color); /* Use provided slogan color */
 }
 
 .price {
   font-weight: bold;
-  color: #007bff;
+  color: var(--icon-gradient-0); /* Use provided icon gradient color */
 }
 
 .description {
-  color: #666;
+  color: var(--font-color); /* Use provided font color */
   margin-bottom: 15px;
 }
 
 .add-to-cart {
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: var(--icon-gradient-0); /* Use provided icon gradient color */
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -66,5 +70,5 @@
 }
 
 .add-to-cart:hover {
-  background-color: #0056b3;
+  background-color: var(--icon-gradient-1); /* Use provided icon gradient color */
 }

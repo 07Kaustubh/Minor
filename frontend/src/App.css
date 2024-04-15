@@ -1,10 +1,45 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Reset and Global Styles */
+:root {
+  --slogan-color: #4a3534;
+  --font-color: #362120;
+  --icon-gradient-0: #5A0E1D;
+  --icon-gradient-1: #B39984;
+  --background-color: #F2EDED;
 }
 
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--font-color);
+  background-color: var(--background-color);
+}
+
+a {
+  font-weight: 500;
+  color: var(--slogan-color);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--icon-gradient-0);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  color: var(--slogan-color);
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Logo Animation */
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -12,10 +47,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em var(--icon-gradient-0)aa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em var(--icon-gradient-1)aa);
 }
 
 @keyframes logo-spin {
@@ -33,10 +68,27 @@
   }
 }
 
-.card {
-  padding: 2em;
+/* Responsive Design */
+
+/* Mobile First Approach */
+@media (min-width: 600px) {
+  /* Adjust styles for tablets */
+  body {
+    font-size: 16px; /* Increase font size for better readability */
+  }
 }
 
-.read-the-docs {
-  color: #888;
+@media (min-width: 1024px) {
+  /* Adjust styles for desktops */
+  body {
+    font-size: 18px; /* Increase font size for better readability */
+  }
+
+  .logo {
+    height: 8em; /* Increase logo size for larger screens */
+  }
+
+  .card {
+    padding: 3em; /* Increase padding for larger screens */
+  }
 }

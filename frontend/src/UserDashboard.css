@@ -1,13 +1,27 @@
+/* UserDashboard.css */
+
+/* Global styles */
+:root {
+  --slogan-color: #4a3534; /* Slogan color */
+  --font-color: #362120; /* Font color */
+  --icon-gradient-0: #5A0E1D; /* Icon gradient color 0 */
+  --icon-gradient-1: #B39984; /* Icon gradient color 1 */
+  --background-color: #F2EDED; /* Background color */
+}
+
 .user-dashboard {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  background-color: var(--background-color); /* Use provided background color */
+  color: var(--font-color); /* Use provided font color */
 }
 
 .dashboard-title {
   font-size: 24px;
   margin-bottom: 20px;
   text-align: center;
+  color: var(--slogan-color); /* Use provided slogan color */
 }
 
 .dashboard-section {
@@ -17,6 +31,7 @@
 .section-title {
   font-size: 20px;
   margin-bottom: 10px;
+  color: var(--slogan-color); /* Use provided slogan color */
 }
 
 .profile-details p {
@@ -28,7 +43,7 @@
 .action-button {
   margin-right: 10px;
   padding: 5px 10px;
-  background-color: #007bff;
+  background-color: var(--icon-gradient-0); /* Use icon gradient color 0 */
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -37,7 +52,7 @@
 
 .profile-actions button:hover,
 .action-button:hover {
-  background-color: #0056b3;
+  background-color: var(--icon-gradient-1); /* Use icon gradient color 1 */
 }
 
 .order-history-table {
@@ -77,3 +92,4 @@
   align-items: center;
   margin-bottom: 10px;
 }
+

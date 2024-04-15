@@ -1,28 +1,50 @@
+/* Footer.css */
+
+/* Global styles */
+:root {
+  --slogan-color: #4a3534; /* Slogan color */
+  --font-color: #362120; /* Font color */
+  --icon-gradient-0: #5A0E1D; /* Icon gradient color 0 */
+  --icon-gradient-1: #B39984; /* Icon gradient color 1 */
+  --background-color: #F2EDED; /* Background color */
+}
+
+/* Footer container */
 .footer {
-    width: 100%;
-    background-color: #4a3534; /* Adjust background color as needed */
-    color: #fff;
-    padding: 50px 0;
-    text-align: center;
-  }
-  
-  .footer-links ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .footer-links ul li {
-    display: inline;
-    margin-right: 20px;
-  }
-  
-  .social-icons a {
-    color: #fff;
-    margin-right: 10px;
-  }
-  
-  .social-icons a:hover {
-    color: #ccc;
-  }
-  
+  width: 100%;
+  background-color: var(--slogan-color); /* Use provided slogan color for background */
+  color: #fff; /* Font color */
+  padding: 50px 0;
+  text-align: center;
+}
+
+/* Footer links */
+.footer-links ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.footer-links ul li:last-child {
+  margin-right: 0;
+}
+
+.footer-links ul li a {
+  color: #fff; /* Font color */
+  text-decoration: none;
+  transition: color 0.3s ease; /* Add transition effect for smoother color change */
+}
+
+.footer-links ul li a:hover {
+  color: var(--font-color); /* Change link color on hover to match the font color */
+}
+
+/* Social icons */
+.social-icons a {
+  color: #fff; /* Icon color */
+  margin-right: 10px;
+  font-size: 24px; /* Adjust icon size */
+}
+
+.social-icons a:hover {
+  color: var(--icon-gradient-1); /* Adjust icon hover color */
+}

@@ -5,6 +5,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  color: var(--font-color); /* Use provided font color */
 }
 
 /* Hero section styles */
@@ -25,18 +26,18 @@ body {
 .hero-content h1 {
   font-size: 36px;
   margin-bottom: 20px;
-  color: #4a3534;
+  color: var(--slogan-color); /* Use provided slogan color */
 }
 
 .hero-content p {
   font-size: 18px;
   margin-bottom: 30px;
-  color: #362120;
+  color: var(--font-color); /* Use provided font color */
 }
 
 .cta-button {
   padding: 15px 30px;
-  background-color: #28a745; /* Adjust button color as needed */
+  background-color: var(--icon-gradient-0); /* Use provided icon gradient color */
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -44,7 +45,7 @@ body {
 }
 
 .cta-button:hover {
-  background-color: #218838; /* Adjust button hover color as needed */
+  background-color: var(--icon-gradient-1); /* Use provided icon gradient color */
 }
 
 /* Promotional banner or featured product image styles */
@@ -61,13 +62,13 @@ body {
 .categories {
   padding: 50px 0;
   text-align: center;
-  background-color: #f2eded;
+  background-color: var(--background-color); /* Use provided background color */
 }
 
 .categories h2 {
   font-size: 24px;
   margin-bottom: 20px;
-  color: #4a3534; /* Adjust heading color for better contrast */
+  color: var(--slogan-color); /* Use provided slogan color */
 }
 
 .category-grid {
@@ -89,12 +90,12 @@ body {
 
 .category-card h3 {
   margin-top: 10px;
-  color: #362120;
+  color: var(--font-color); /* Use provided font color */
 }
 
 /* Testimonials section styles */
 .testimonials {
-  background-color: #b39984; /* Adjust background color as needed */
+  background-color: var(--icon-gradient-1); /* Use provided icon gradient color */
   padding: 50px 0;
   text-align: center;
   color: #333; /* Adjust text color for better visibility */
@@ -103,7 +104,7 @@ body {
 .testimonials h2 {
   font-size: 24px;
   margin-bottom: 20px;
-  color: #000; /* Adjust heading color for better contrast */
+  color: var(--font-color); /* Use provided font color */
 }
 
 .testimonial-slider {
@@ -114,7 +115,7 @@ body {
 }
 
 .testimonial {
-  background-color: #f2eded;
+  background-color: var(--background-color); /* Use provided background color */
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -131,5 +132,3 @@ body {
   font-style: italic;
   color: #777; /* Adjust testimonial author color */
 }
-
-

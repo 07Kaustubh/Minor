@@ -61,8 +61,10 @@ const ShoppingCart = () => {
   };
 
   return (
+    <div>
+    <Header />
     <div className="shopping-cart">
-      <Header />
+
       <div className="container">
         <h2 className="cart-title">Shopping Cart</h2>
         {productDetails.length === 0 ? ( // Check if cart is empty
@@ -103,7 +105,9 @@ const ShoppingCart = () => {
           <Link to="/checkout" className="checkout-button">Proceed to Checkout</Link>
         </div>
       )}
-      <Footer />
+
+    </div>
+    <Footer />
     </div>
   );
 };

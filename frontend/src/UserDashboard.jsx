@@ -161,8 +161,10 @@ const UserDashboard = () => {
   }
 
   return (
+    <div>
+    <Header />
     <div className="user-dashboard">
-      <Header />
+
       <h2 className="dashboard-title">Welcome, {userData.firstName} {userData.lastName}!</h2>
       {/* User profile section */}
       <div className="dashboard-section profile-section">
@@ -253,7 +255,9 @@ const UserDashboard = () => {
 </div>
 
       {/* ... */}
-      <Footer />
+
+    </div>
+    <Footer />
     </div>
   );
 };

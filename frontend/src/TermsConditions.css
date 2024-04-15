@@ -1,18 +1,41 @@
 /* TermsConditions.css */
+
+/* Global styles */
+:root {
+  --slogan-color: #4a3534; /* Slogan color */
+  --font-color: #362120; /* Font color */
+  --icon-gradient-0: #5A0E1D; /* Icon gradient color 0 */
+  --icon-gradient-1: #B39984; /* Icon gradient color 1 */
+  --background-color: #F2EDED; /* Background color */
+}
+
+/* Terms & Conditions container */
 .terms-conditions {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--background-color); /* Use provided background color */
+  color: var(--font-color); /* Use provided font color */
+}
+
+/* Terms & Conditions headings */
+.terms-conditions h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: var(--slogan-color); /* Use provided slogan color */
+}
+
+/* Terms & Conditions paragraphs */
+.terms-conditions p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  /* Adjustments for smaller screens */
+  .terms-conditions {
+    padding: 10px;
   }
-  
-  .terms-conditions h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
-  
-  .terms-conditions p {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 15px;
-  }
-  
+}

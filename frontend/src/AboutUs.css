@@ -1,18 +1,41 @@
 /* AboutUs.css */
+
+/* Global styles */
+:root {
+  --slogan-color: #4a3534; /* Slogan color */
+  --font-color: #362120; /* Font color */
+  --icon-gradient-0: #5A0E1D; /* Icon gradient color 0 */
+  --icon-gradient-1: #B39984; /* Icon gradient color 1 */
+  --background-color: #F2EDED; /* Background color */
+}
+
+/* About Us container */
 .about-us {
-    max-width: 800px; /* Set maximum width for better readability */
-    margin: 0 auto; /* Center the content horizontally */
-    padding: 20px; /* Add some padding for spacing */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--background-color); /* Use provided background color */
+  color: var(--font-color); /* Use provided font color */
+}
+
+/* About Us heading */
+.about-us h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: var(--slogan-color); /* Use provided slogan color */
+}
+
+/* About Us paragraphs */
+.about-us p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  /* Adjustments for smaller screens */
+  .about-us {
+    padding: 10px;
   }
-  
-  .about-us h1 {
-    font-size: 2em; /* Larger font size for heading */
-    margin-bottom: 20px; /* Add spacing below the heading */
-  }
-  
-  .about-us p {
-    font-size: 1.1em; /* Medium font size for paragraphs */
-    line-height: 1.6; /* Set line height for better readability */
-    margin-bottom: 15px; /* Add spacing below paragraphs */
-  }
-  
+}

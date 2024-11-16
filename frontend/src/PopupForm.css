@@ -1,79 +1,137 @@
-/* PopupForm.css */
-
-/* Global styles */
-:root {
-  --slogan-color: #4a3534; /* Slogan color */
-  --font-color: #362120; /* Font color */
-  --icon-gradient-0: #5A0E1D; /* Icon gradient color 0 */
-  --icon-gradient-1: #B39984; /* Icon gradient color 1 */
-  --background-color: #F2EDED; /* Background color */
-}
-
-/* Popup container */
 .popup-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000; /* Ensure it's above other elements */
 }
 
-/* Popup form */
 .popup-form {
-  background: var(--background-color); /* Background color */
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  animation: slideIn 0.3s ease-out;
 }
 
-/* Close button */
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .close-btn {
-  background: var(--font-color); /* Font color */
-  color: #fff;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
   border: none;
-  padding: 5px 10px;
-  margin-bottom: 10px;
+  font-size: 20px;
+  color: #666;
   cursor: pointer;
+  padding: 5px;
+  transition: color 0.2s;
 }
 
-/* Switch button */
-.switch-btn {
-  background: var(--icon-gradient-0); /* Icon gradient color 0 */
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
+.close-btn:hover {
+  color: var(--icon-gradient-0);
 }
 
-/* Form */
+.popup-form h2 {
+  color: var(--slogan-color);
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
 form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
 
-/* Input fields */
 input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.2s;
 }
 
-/* Submit button */
-button {
-  background: var(--icon-gradient-1); /* Icon gradient color 1 */
-  color: #fff;
+input:focus {
+  border-color: var(--icon-gradient-0);
+  outline: none;
+}
+
+button[type="submit"] {
+  background: var(--icon-gradient-0);
+  color: white;
+  padding: 12px;
   border: none;
-  padding: 8px;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-/* Submit button hover effect */
-button:hover {
-  background: #45a049;
+button[type="submit"]:hover {
+  background: var(--icon-gradient-1);
+}
+
+.error-message {
+  color: #dc3545;
+  text-align: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: #ffe6e6;
+  border-radius: 4px;
+}
+
+p {
+  text-align: center;
+  margin-top: 15px;
+  color: #666;
+}
+
+.switch-btn {
+  background: none;
+  border: none;
+  color: var(--icon-gradient-0);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 5px;
+  transition: color 0.2s;
+}
+
+.switch-btn:hover {
+  color: var(--icon-gradient-1);
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .popup-form {
+    width: 90%;
+    padding: 20px;
+  }
+  
+  input, button[type="submit"] {
+    padding: 10px;
+    font-size: 14px;
+  }
 }
